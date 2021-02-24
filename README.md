@@ -3,7 +3,7 @@ This web app decides if a mushroom is edible or poisonous and explains the predi
 ![preview](img/example.png)
 
 
-## Steps to get a working web app
+## Steps to get the web app working
 1. Create a new environment. Conda example: `conda create --name mushroom python=3.8 pip`
 2. Activate the environment. Conda example: `conda activate mushroom`
 3. Install the requirements via `pip install -r requirements.txt`
