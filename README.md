@@ -1,6 +1,6 @@
 # mushroom_webapp
-This web app decides if a mushroom is edible and explains the prediction.
-![preview](https://github.com/henniedeharder/mushroom_webapp/tree/main/img/example.png)
+This web app decides if a mushroom is edible or poisonous and explains the prediction.
+![preview](img/example.png)
 
 
 ## Steps to get a working web app
