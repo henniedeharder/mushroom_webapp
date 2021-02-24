@@ -1,5 +1,9 @@
 # mushroom_webapp
 This web app decides if a mushroom is edible or poisonous and explains the prediction.
+You can specify the odor, gill size, bruises, population, habitat and spore print color.
+If you press send, you'll see the prediction and explanation.
+The explanation is build with shap, and the model was 100% accurate.
+The dataset is from kaggle. URL: https://www.kaggle.com/uciml/mushroom-classification
 ![preview](img/example.png)
 
 
