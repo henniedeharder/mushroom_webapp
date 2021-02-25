@@ -1,4 +1,4 @@
-# run by running 'streamlit run C:\git\RL\mushroom\mushroomapp.py' in anaconda terminal from environment scrape
+# run by running 'streamlit run streamlit_app.py'
 import streamlit as st
 import pickle
 import numpy as np
