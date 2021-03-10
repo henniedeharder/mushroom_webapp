@@ -12,10 +12,7 @@ def get_explanations(df, model):
         shap_df = pd.DataFrame(shap_values, columns=df.columns)
         return shap_df
     except Exception as e:
-        msg = f'Error during get_explanations: {str(e)}'
-        logging.error(msg)
-        send_mail('Error during getting Ster predictions', message=msg, tp='Error')
-        sys.exit()
+        print(e)
 
 
 def create_interpret_df(shap_df, new, new_mush):
