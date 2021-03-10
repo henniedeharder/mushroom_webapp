@@ -3,7 +3,7 @@ import pandas as pd
 import shap
 import matplotlib.pyplot as plt 
 import matplotlib.patches as mpatches
-import logging
+
 
 def get_explanations(df, model):
     try:
