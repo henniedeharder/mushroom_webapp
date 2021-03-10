@@ -7,8 +7,8 @@ import matplotlib.patches as mpatches
 
 def get_explanations(df, model):
     try:
-        explainer = shap.TreeExplainer(model)
-        shap_values = explainer.shap_values(df)
+        explainer = shap.Explainer(model)
+        shap_values = explainer(df)
         shap_df = pd.DataFrame(shap_values, columns=df.columns)
         return shap_df
     except Exception as e:
