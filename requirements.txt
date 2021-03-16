@@ -1,6 +1,6 @@
 plotly==4.14.3
 pandas==1.2.2
-numpy==1.19.2
+numpy==1.20.1
 umap_learn==0.5.1
 shap==0.38.1
 streamlit==0.77.0
