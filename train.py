@@ -11,6 +11,7 @@ import sklearn
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, auc, confusion_matrix
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 
 import xgboost as xgb 
@@ -18,6 +19,7 @@ import xgboost as xgb
 import umap
 import shap 
 import pickle
+import os
 
 # umap for plotting
 
@@ -139,9 +141,12 @@ def predict(model, data, enc):
 
 
 if __name__ == "__main__":
+    print(os.getcwd())
+    os.chdir('C:/git/RL/mushroom')
+    print(os.getcwd())
     # load and transform data
     df, le, used_cols, enc = load_and_transform_mushroom_data()
     # train model
-    cfle, accle, X_le, y_le, model_le = train(le, model=xgb.XGBClassifier(), display_results=False)
+    cfle, accle, X_le, y_le, model_le = train(le, model=RandomForestClassifier(), display_results=False) # model=xgb.XGBClassifier(), 
     # dump model
-    pickle.dump(model_le, open('mushroom.h5', 'wb'))
+    pickle.dump(model_le, open('mushroomrf.h5', 'wb'))
