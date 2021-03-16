@@ -9,7 +9,10 @@ def get_explanations(df, model):
     try:
         explainer = shap.TreeExplainer(model)
         shap_values = explainer.shap_values(df)
+        print(shap_values)
         shap_df = pd.DataFrame(shap_values[1], columns=df.columns)
+        print('yea')
+        print(shap_df)
         return shap_df
     except Exception as e:
         print(e)
