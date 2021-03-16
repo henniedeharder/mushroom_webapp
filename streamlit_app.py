@@ -39,7 +39,7 @@ with col3:
 new_mush = pd.DataFrame([opts], columns=used_cols)
 
 # get prediction
-model = load_model(model_filename='mushroom.h5')
+model = load_model(model_filename='mushroomdtc.h5')
 pred = predict(model, new_mush, encoder)
 
 # get explanation
