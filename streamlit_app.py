@@ -35,23 +35,21 @@ with col2:
 with col3:
     visual = st.button('Visualization')
 
-# clicking the send button
-if send:   
-    # create dataframe with selected values
-    new_mush = pd.DataFrame([opts], columns=used_cols)
-    new_mush
-    # get prediction
-    model = load_model(model_filename='mushroom.h5')
-    pred = predict(model, new_mush, encoder)
-    pred
+# create dataframe with selected values
+new_mush = pd.DataFrame([opts], columns=used_cols)
 
-    # get explanation
-    new = encoder.transform(new_mush)
-    shap_df = get_explanations(new, model)
-    shap_df
-    interpretation = create_interpret_df(shap_df, new, new_mush)
-    interpretation
-    fig, ax = plot_interpretation(interpretation)
+# get prediction
+model = load_model(model_filename='mushroom.h5')
+pred = predict(model, new_mush, encoder)
+
+# get explanation
+new = encoder.transform(new_mush)
+shap_df = get_explanations(new, model)
+interpretation = create_interpret_df(shap_df, new, new_mush)
+fig, ax = plot_interpretation(interpretation)
+
+# clicking the send button
+if send:
     if pred.loc['edible','score'] > 0.5: 
         result = 'edible' 
     else:

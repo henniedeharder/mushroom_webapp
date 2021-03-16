@@ -7,9 +7,9 @@ import matplotlib.patches as mpatches
 
 def get_explanations(df, model):
     try:
-        explainer = shap.Explainer(model)
-        shap_values = explainer(df)
-        shap_df = pd.DataFrame(shap_values.values, columns=df.columns)
+        explainer = shap.TreeExplainer(model)
+        shap_values = explainer.shap_values(df)
+        shap_df = pd.DataFrame(shap_values, columns=df.columns)
         return shap_df
     except Exception as e:
         print(e)
@@ -35,19 +35,19 @@ def create_interpret_df(shap_df, new, new_mush):
         interpret['feature_value'] = interpret.apply(get_value, axis=1)
         interpret['feature&value'] = interpret.apply(lambda row: row.feature + ' is ' + str(row.feature_value), axis=1)
         interpret['color'] = np.where(interpret['shap_value'] > 0, 'green', 'red')
-
+        
         return interpret
     except Exception as e:
         print(e)
 
 
-def plot_interpretation(interpretation):
-    y_pos = np.arange(len(interpretation.index))
+def plot_interpretation(interpret):
+    y_pos = np.arange(len(interpret.index))
     # plt.rcParams["figure.figsize"] = (10,10)
     fig, ax = plt.subplots(figsize=(8,3))
-    ax.barh(y_pos, interpretation.shap_value.values, align='center', color=interpretation.color.values)
+    ax.barh(y_pos, interpret.shap_value.values, align='center', color=interpret.color.values)
     ax.set_yticks(y_pos)
-    ax.set_yticklabels(interpretation['feature&value'].values)
+    ax.set_yticklabels(interpret['feature&value'].values)
     # ax.set_ylabel('Characteristic')
     ax.invert_yaxis() 
     ax.set_title('Contribution to edibility')
