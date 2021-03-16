@@ -141,9 +141,7 @@ def predict(model, data, enc):
 
 
 if __name__ == "__main__":
-    print(os.getcwd())
-    os.chdir('C:/git/RL/mushroom')
-    print(os.getcwd())
+    # os.chdir('C:/git/RL/mushroom')
     # load and transform data
     df, le, used_cols, enc = load_and_transform_mushroom_data()
     # train model
