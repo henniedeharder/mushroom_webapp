@@ -24,7 +24,7 @@ for col in used_cols:
     opts.append(option)
 
 # create buttons
-col1, col2, col3 = st.beta_columns([0.1,0.09, 1])
+col1, col2, col3 = st.beta_columns([0.1,0.11, 1])
 
 with col1:
     send = st.button('Send')
@@ -44,11 +44,8 @@ pred = predict(model, new_mush, encoder)
 
 # get explanation
 new = encoder.transform(new_mush)
-new
 shap_df = get_explanations(new, model)
-shap_df
 interpretation = create_interpret_df(shap_df, new, new_mush)
-interpretation
 fig, ax = plot_interpretation(interpretation)
 
 # clicking the send button
