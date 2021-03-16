@@ -24,7 +24,7 @@ for col in used_cols:
     opts.append(option)
 
 # create buttons
-col1, col2, col3 = st.beta_columns([0.1,0.11, 1])
+col1, col2, col3 = st.beta_columns([0.12,0.11, 1])
 
 with col1:
     send = st.button('Send')
